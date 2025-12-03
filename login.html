@@ -1,22 +1,24 @@
-<!-- login.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iniciar Sesión | NERV</title>
+  <title>Iniciar Sesión - NERV</title>
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
-<body class="auth-bg">
-  <div class="auth-container">
-    <h1>Bienvenido<br>Iniciar Sesión</h1>
-    <form>
-      <input type="email" placeholder="Email" required>
-      <input type="password" placeholder="Contraseña" required>
-      <button type="submit" class="btn-auth">Iniciar Sesión</button>
+<body style="background:#0F0E0E; display:flex; align-items:center; justify-content:center; min-height:100vh;">
+
+  <div style="background:rgba(255,87,0,0.1); padding:80px 60px; border-radius:30px; text-align:center; max-width:500px;">
+    <h1 style="font-size:6rem; color:#FF5700; margin-bottom:50px;">Iniciar Sesión</h1>
+    <form style="display:flex; flex-direction:column; gap:24px;">
+      <input type="email" placeholder="Email" required style="padding:18px; border-radius:50px; border:none; background:#222; color:white; font-size:1.1rem;">
+      <input type="password" placeholder="Contraseña" required style="padding:18px; border-radius:50px; border:none; background:#222; color:white; font-size:1.1rem;">
+      <button type="submit" class="btn">Entrar</button>
     </form>
-    <p>¿No tienes cuenta? <a href="signup.html">Registrarse</a></p>
+    <p style="margin-top:40px; font-size:1.1rem;"><a href="signup.html" style="color:#FF5700; text-decoration:none;">¿No tienes cuenta? Regístrate</a></p>
   </div>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
