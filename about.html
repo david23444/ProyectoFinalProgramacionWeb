@@ -4,22 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NERV</title>
+  
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
-
   <header class="header">
     <div class="container">
       <div class="nav-bar">
-   <a href="index.html" class="logo">
-  <img src="images/LogoCorporativoPW.jpg" alt="NERV">
-</a>
+        <a href="index.html" class="logo">
+          <img src="images/LogoCorporativoPW.png" alt="NERV">
+        </a>
+        <button class="menu-toggle" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav">
           <a href="index.html">Inicio</a>
           <a href="archive.html">Archive</a>
           <a href="about.html" class="active">NERV</a>
         </nav>
-        <a href="login.html" class="btn">Iniciar Sesión</a>
+        <a href="login.html" class="btn" id="loginBtn">Iniciar Sesión</a>
       </div>
     </div>
   </header>
@@ -30,12 +37,21 @@
     <p style="font-size:1.8rem; text-align:center; color:#888;">Reseñas de cine con alma desde 2025.</p>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <h1>Nuestras<br>Redes</h1>
+ <footer class="footer">
+  <div class="container">
+    <h1>Nuestras<br>Redes</h1>
+    <div class="social-links">
+      <a href="#" class="social-icon">Instagram</a>
+      <a href="#" class="social-icon">Twitter</a>
+      <a href="#" class="social-icon">YouTube</a>
+      <a href="#" class="social-icon">TikTok</a>
     </div>
-  </footer>
-
-  <script src="assets/js/main.js"></script>
+    <p style="margin-top:40px; color:#666; font-size:1rem;">
+      © 2025 NERV - Reseñas de cine con alma<br>
+      Contacto: nerv.cine@gmail.com
+    </p>
+  </div>
+</footer>
+  <script src="assets/css/js/main.js"></script>
 </body>
 </html>

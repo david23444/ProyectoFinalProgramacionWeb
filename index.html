@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NERV - Reseñas de cine con alma</title>
+
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
@@ -12,57 +15,84 @@
   <header class="header">
     <div class="container">
       <div class="nav-bar">
-<a href="index.html" class="logo">
-  <img src="images/LogoCorporativoPW.jpg" alt="NERV">
-</a>
+        <a href="index.html" class="logo">
+          <img src="images/LogoCorporativoPW.png" alt="NERV">
+        </a>
+        <button class="menu-toggle" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
         <nav class="nav">
           <a href="index.html" class="active">Inicio</a>
           <a href="archive.html">Archive</a>
           <a href="about.html">NERV</a>
         </nav>
-        <a href="login.html" class="btn">Iniciar Sesión</a>
+        <a href="login.html" class="btn" id="loginBtn">Iniciar Sesión</a>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero">
-      <div class="grid">
-        <div class="card main">
-          <img src="images/frank.png" alt="Frank">
-          <div class="info">
-            <h2>Los 4 Fantásticos: primeros pasos</h2>
-            <p>Film · August 21, 2028</p>
-            <a href="#" class="btn">Ver detalles</a>
-          </div>
-        </div>
-        <div class="card">
-          <img src="images/spiderman.jpg" alt="Spider-Man">
-          <div class="info">
-            <h2>The Amazing Spider-Man 2</h2>
-            <p>Acción · May 14, 2014</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="images/attack.png" alt="Attack on Titan">
-          <div class="info">
-            <h2>Attack on Titan</h2>
-            <p>Film · February 27, 2025</p>
-          </div>
-        </div>
-      </div>
+
+    <!-- CARRUSEL PRINCIPAL -->
+    <section class="hero hero-wrapper">
+      <div class="carousel" id="carousel"></div>
+      <div class="carousel-dots" id="dots"></div>
       <div class="more">
         <a href="archive.html" class="btn">Ver más</a>
       </div>
     </section>
+
+    <!-- FILA DRAMA -->
+    <div class="movies-row">
+      <h2 class="row-title">Drama</h2>
+      <button class="row-nav prev" onclick="scrollRow('dramaRow', -400)">←</button>
+      <button class="row-nav next" onclick="scrollRow('dramaRow', 400)">→</button>
+      <div class="movies-scroll" id="dramaRow"></div>
+    </div>
+
+    <!-- FILA TERROR -->
+    <div class="movies-row">
+      <h2 class="row-title">Terror</h2>
+      <button class="row-nav prev" onclick="scrollRow('terrorRow', -400)">←</button>
+      <button class="row-nav next" onclick="scrollRow('terrorRow', 400)">→</button>
+      <div class="movies-scroll" id="terrorRow"></div>
+    </div>
+
+    <!-- FILA ACCIÓN -->
+    <div class="movies-row">
+      <h2 class="row-title">Acción</h2>
+      <button class="row-nav prev" onclick="scrollRow('accionRow', -400)">←</button>
+      <button class="row-nav next" onclick="scrollRow('accionRow', 400)">→</button>
+      <div class="movies-scroll" id="accionRow"></div>
+    </div>
+
+    <!-- FILA COMEDIA -->
+    <div class="movies-row">
+      <h2 class="row-title">Comedia</h2>
+      <button class="row-nav prev" onclick="scrollRow('comediaRow', -400)">←</button>
+      <button class="row-nav next" onclick="scrollRow('comediaRow', 400)">→</button>
+      <div class="movies-scroll" id="comediaRow"></div>
+    </div>
+
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <h1>Nuestras<br>Redes</h1>
+      <div class="social-links">
+        <a href="#" class="social-icon">Instagram</a>
+        <a href="#" class="social-icon">Twitter</a>
+        <a href="#" class="social-icon">YouTube</a>
+        <a href="#" class="social-icon">TikTok</a>
+      </div>
+      <p style="margin-top:40px; color:#666; font-size:1rem;">
+        © 2025 NERV - Reseñas de cine con alma<br>
+        Contacto: nerv.cine@gmail.com
+      </p>
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/css/js/main.js"></script>
 </body>
 </html>

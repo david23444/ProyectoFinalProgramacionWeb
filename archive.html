@@ -4,69 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Archive - NERV</title>
+  <!-- AQUÍ VA TU FAVICON -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
-
   <header class="header">
     <div class="container">
       <div class="nav-bar">
-     <a href="index.html" class="logo">
-  <img src="images/LogoCorporativoPW.jpg" alt="NERV">
-</a>
+        <a href="index.html" class="logo">
+          <img src="images/LogoCorporativoPW.png" alt="NERV">
+        </a>
+        <button class="menu-toggle" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
         <nav class="nav">
           <a href="index.html">Inicio</a>
           <a href="archive.html" class="active">Archive</a>
           <a href="about.html">NERV</a>
         </nav>
-        <a href="login.html" class="btn">Iniciar Sesión</a>
+        <a href="login.html" class="btn" id="loginBtn">Iniciar Sesión</a>
       </div>
     </div>
   </header>
 
   <main class="container">
     <h1 style="font-size:6rem; color:#FF5700; text-align:center; margin:100px 0 60px;">Archive</h1>
-    <div class="archive-grid">
-      <div class="archive-card">
-        <img src="images/frank.png" alt="Frank">
-        <h3>Los 4 Fantásticos: primeros pasos</h3>
-        <p>Film · August 21, 2028</p>
-      </div>
-      <div class="archive-card">
-        <img src="images/spiderman.jpg" alt="Spider-Man">
-        <h3>The Amazing Spider-Man 2</h3>
-        <p>Acción · May 14, 2014</p>
-      </div>
-      <div class="archive-card">
-        <img src="images/attack.png" alt="Attack">
-        <h3>Attack on Titan</h3>
-        <p>Film · February 27, 2025</p>
-      </div>
-      <div class="archive-card">
-        <img src="images/kpop.jpg" alt="K-Pop">
-        <h3>K-Pop Demon Hunters</h3>
-        <p>Animación · 2025</p>
-      </div>
-      <div class="archive-card">
-        <img src="images/derry.png" alt="Derry">
-        <h3>It Chapter Two</h3>
-        <p>Terror · 2019</p>
-      </div>
-      <div class="archive-card">
-        <img src="images/zootopia.jpg" alt="Zootopia">
-        <h3>Zootopia 2</h3>
-        <p>Animación · 2025</p>
-      </div>
-    </div>
+    <div class="archive-grid" id="archiveGrid"></div>
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <h1>Nuestras<br>Redes</h1>
+  <div class="container">
+    <h1>Nuestras<br>Redes</h1>
+    <div class="social-links">
+      <a href="#" class="social-icon">Instagram</a>
+      <a href="#" class="social-icon">Twitter</a>
+      <a href="#" class="social-icon">YouTube</a>
+      <a href="#" class="social-icon">TikTok</a>
     </div>
-  </footer>
+    <p style="margin-top:40px; color:#666; font-size:1rem;">
+      © 2025 NERV - Reseñas de cine con alma<br>
+      Contacto: nerv.cine@gmail.com
+    </p>
+  </div>
+</footer>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/css/js/main.js"></script>
 </body>
 </html>

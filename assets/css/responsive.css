@@ -1,59 +1,14 @@
-/* =============== RESPONSIVE.CSS =============== */
-
-@media (max-width: 1100px) {
-  .hero .grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .card.main {
-    grid-column: 1 / -1;
-  }
-
-  /* Logo un poco más pequeño en tablets */
-  .logo img {
-    height: 52px;
-    max-width: 250px;
-  }
-}
-
+/* Si tu profe pide responsive separado, usa esto */
 @media (max-width: 768px) {
-  .container { padding: 0 20px; }
-
-  .nav-bar {
-    flex-direction: column;
-    gap: 30px;
-    text-align: center;
-  }
-
-  .nav a {
-    margin: 0 20px;
-    font-size: 1.5rem;
-  }
-
-  .hero .grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .info { padding: 40px 30px; }
-  .info h2 { font-size: 2.4rem; }
-
-  .footer h1 { font-size: 6rem; }
-  .more { margin-bottom: 100px; }
-
-  /* Logo bien controlado en móvil */
-  .logo img {
-    height: 46px;
-    max-width: 220px;
-  }
+  .carousel-overlay h2 { font-size:3rem !important; }
+  .carousel-overlay p { font-size:1.3rem !important; }
+  .carousel-overlay { padding:100px 20px 140px !important; }
+  .about h1 { font-size:6rem !important; }
+  .footer h1 { font-size:6rem; }
 }
-
 @media (max-width: 480px) {
-  .footer h1 { font-size: 4.5rem; }
-  .btn { padding: 12px 30px; }
-
-  /* Logo ultra seguro en móviles pequeños */
-  .logo img {
-    height: 42px;
-    max-width: 190px;
-  }
+  .carousel-overlay h2 { font-size:2.5rem !important; }
+  .carousel-overlay p { font-size:1.1rem !important; }
+  .about h1 { font-size:5rem !important; }
+  .footer h1 { font-size:4.5rem; }
 }

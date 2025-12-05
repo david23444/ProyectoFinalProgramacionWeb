@@ -3,22 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro - NERV</title>
+  <title>Crear Cuenta - NERV</title>
+
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
-<body style="background:#0F0E0E; display:flex; align-items:center; justify-content:center; min-height:100vh;">
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="nav-bar">
+        <a href="index.html" class="logo">
+          <img src="images/LogoCorporativoPW.png" alt="NERV">
+        </a>
+        <button class="menu-toggle" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav">
+          <a href="index.html">Inicio</a>
+          <a href="archive.html">Archive</a>
+          <a href="about.html">NERV</a>
+        </nav>
+        <a href="login.html" class="btn" id="loginBtn">Iniciar Sesión</a>
+      </div>
+    </div>
+  </header>
 
-  <div style="background:rgba(255,87,0,0.1); padding:80px 60px; border-radius:30px; text-align:center; max-width:500px;">
-    <h1 style="font-size:6rem; color:#FF5700; margin-bottom:50px;">Crear Cuenta</h1>
-    <form style="display:flex; flex-direction:column; gap:24px;">
-      <input type="text" placeholder="Nombre" required style="padding:18px; border-radius:50px; border:none; background:#222; color:white;">
-      <input type="email" placeholder="Email" required style="padding:18px; border-radius:50px; border:none; background:#222; color:white;">
-      <input type="password" placeholder="Contraseña" required style="padding:18px; border-radius:50px; border:none; background:#222; color:white;">
+  <div class="form-container">
+    <h1>Crear Cuenta</h1>
+    <form id="signupForm">
+      <div class="form-group">
+        <input type="text" placeholder="Nombre completo" required>
+      </div>
+      <div class="form-group">
+        <input type="email" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+        <input type="password" placeholder="Contraseña (mín. 6)" required>
+      </div>
       <button type="submit" class="btn">Registrarse</button>
     </form>
   </div>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/css/js/main.js"></script>
 </body>
 </html>
