@@ -1,4 +1,4 @@
-/* Si tu profe pide responsive separado, usa esto */
+
 @media (max-width: 768px) {
   .carousel-overlay h2 { font-size:3rem !important; }
   .carousel-overlay p { font-size:1.3rem !important; }
