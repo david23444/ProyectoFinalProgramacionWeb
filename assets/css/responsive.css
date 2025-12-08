@@ -1,14 +1,43 @@
+/* RESPONSIVE - Todo lo que va en pantallas pequeñas */
+@media (max-width: 1024px) {
+  .carousel-overlay h2 { font-size:3.8rem; }
+  .carousel-overlay { padding:100px 30px 80px; }
+}
 
 @media (max-width: 768px) {
+  .container { padding:0 20px; }
+  .menu-toggle { display:block !important; }
+  .nav, #loginBtn { display:none; }
+  .nav.active {
+    display:flex !important;
+    position:fixed; top:0; left:0; right:0; bottom:0;
+    background:#0F0E0E; flex-direction:column;
+    justify-content:center; align-items:center;
+    gap:60px; font-size:3rem; z-index:1000;
+  }
+  .hero-wrapper { height:100vh; }
   .carousel-overlay h2 { font-size:3rem !important; }
   .carousel-overlay p { font-size:1.3rem !important; }
   .carousel-overlay { padding:100px 20px 140px !important; }
+  .carousel-overlay .btn { padding:12px 30px; }
+  .row-title { font-size:2rem; }
+  .movie-card { min-width:220px; }
+  .movie-card img { height:320px; }
+  .row-nav { width:50px; height:100px; font-size:2.5rem; }
   .about h1 { font-size:6rem !important; }
   .footer h1 { font-size:6rem; }
+  .form-container { margin:60px auto; padding:60px 40px; }
+  .form-container h1 { font-size:4.5rem; }
 }
+
 @media (max-width: 480px) {
   .carousel-overlay h2 { font-size:2.5rem !important; }
   .carousel-overlay p { font-size:1.1rem !important; }
+  .carousel-overlay .btn { padding:10px 25px; }
+  .row-title { font-size:1.8rem; }
+  .movie-card { min-width:180px; }
+  .movie-card img { height:270px; }
   .about h1 { font-size:5rem !important; }
   .footer h1 { font-size:4.5rem; }
+  .form-container h1 { font-size:4rem; }
 }

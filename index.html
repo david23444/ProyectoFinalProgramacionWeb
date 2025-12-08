@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NERV - Reseñas de cine con alma</title>
-
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
@@ -42,7 +40,7 @@
       </div>
     </section>
 
-    <!-- FILA DRAMA -->
+    <!-- FILAS POR GÉNERO -->
     <div class="movies-row">
       <h2 class="row-title">Drama</h2>
       <button class="row-nav prev" onclick="scrollRow('dramaRow', -400)">←</button>
@@ -50,7 +48,6 @@
       <div class="movies-scroll" id="dramaRow"></div>
     </div>
 
-    <!-- FILA TERROR -->
     <div class="movies-row">
       <h2 class="row-title">Terror</h2>
       <button class="row-nav prev" onclick="scrollRow('terrorRow', -400)">←</button>
@@ -58,7 +55,6 @@
       <div class="movies-scroll" id="terrorRow"></div>
     </div>
 
-    <!-- FILA ACCIÓN -->
     <div class="movies-row">
       <h2 class="row-title">Acción</h2>
       <button class="row-nav prev" onclick="scrollRow('accionRow', -400)">←</button>
@@ -66,7 +62,6 @@
       <div class="movies-scroll" id="accionRow"></div>
     </div>
 
-    <!-- FILA COMEDIA -->
     <div class="movies-row">
       <h2 class="row-title">Comedia</h2>
       <button class="row-nav prev" onclick="scrollRow('comediaRow', -400)">←</button>
@@ -92,6 +87,31 @@
       </p>
     </div>
   </footer>
+
+  <!-- MODAL DE DETALLE -->
+ <!-- MODAL SIMPLIFICADO - SOLO TRAILER + SINOPSIS + ESTRELLAS -->
+<div class="movie-modal" id="movieModal">
+  <div class="modal-content">
+  <button class="modal-close" id="closeModalBtn">×</button>
+    
+    <div class="modal-info">
+      <h2 id="modalTitle">Cargando...</h2>
+      <p class="year" id="modalYear">2025</p>
+      
+      <iframe class="modal-trailer" id="trailerFrame" src="" allowfullscreen></iframe>
+      
+      <div class="synopsis" id="modalSynopsis">Cargando sinopsis...</div>
+      
+      <div class="stars-rating" id="ratingStars">
+        <span data-value="1">★</span>
+        <span data-value="2">★</span>
+        <span data-value="3">★</span>
+        <span data-value="4">★</span>
+        <span data-value="5">★</span>
+      </div>
+    </div>
+  </div>
+</div>
 
   <script src="assets/css/js/main.js"></script>
 </body>

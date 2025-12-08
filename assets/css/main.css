@@ -179,7 +179,7 @@ body {
 .movies-row {
   position:relative;
   margin:80px 0;
-  padding:0 70px; /* espacio para los botones */
+  padding:0 70px;
 }
 
 .row-title {
@@ -240,34 +240,36 @@ body {
   font-size:1rem;
 }
 
-/* BOTONES ← →  */
+/* BOTONES ← → (solo aparecen al pasar el mouse) */
 .row-nav {
   position:absolute;
   top:50%;
   transform:translateY(-50%);
-  background:rgba(0,0,0,0.7);
+  background:rgba(0,0,0,0.6);
   border:none;
   color:white;
-  font-size:3rem;
-  width:60px;
-  height:120px;
+  font-size:2.8rem;
+  width:50px;
+  height:100px;
   cursor:pointer;
-  z-index:20;
-  border-radius:10px;
+  z-index:30;
+  border-radius:8px;
   display:flex;
   align-items:center;
   justify-content:center;
   transition:all .3s;
-  backdrop-filter:blur(10px);
+  opacity:0;
 }
+
+.movies-row:hover .row-nav { opacity:1; }
 
 .row-nav:hover {
   background:#FF5700;
-  transform:translateY(-50%) scale(1.1);
+  transform:translateY(-50%) scale(1.15);
 }
 
-.row-nav.prev { left:10px; }
-.row-nav.next { right:10px; }
+.row-nav.prev { left:15px; }
+.row-nav.next { right:15px; }
 
 /* ====================== ARCHIVE ====================== */
 .archive-grid {
@@ -314,63 +316,15 @@ body {
 }
 
 /* ====================== ABOUT & FOOTER ====================== */
-.about {
-  text-align:center;
-  padding:120px 20px;
-}
-
-.about img {
-  max-width:100%;
-  border-radius:20px;
-  margin-bottom:60px;
-}
-
-.about h1 {
-  font-size:9rem;
-  color:#FF5700;
-  margin:40px 0;
-  line-height:1;
-}
-
-.about p {
-  font-size:1.8rem;
-  color:#888;
-}
-
-.footer {
-  padding:100px 0;
-  text-align:center;
-}
-
-.footer h1 {
-  font-size:10rem;
-  font-weight:900;
-  color:#FF5700;
-  line-height:0.9;
-}
-
-.social-links {
-  margin:40px 0;
-  display:flex;
-  gap:30px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-
-.social-icon {
-  background:#FF5700;
-  color:#000;
-  padding:12px 30px;
-  border-radius:50px;
-  text-decoration:none;
-  font-weight:700;
-  transition:all .3s;
-}
-
-.social-icon:hover {
-  background:#fff;
-  transform:translateY(-5px);
-}
+.about { text-align:center; padding:120px 20px; }
+.about img { max-width:100%; border-radius:20px; margin-bottom:60px; }
+.about h1 { font-size:9rem; color:#FF5700; margin:40px 0; line-height:1; }
+.about p { font-size:1.8rem; color:#888; }
+.footer { padding:100px 0; text-align:center; }
+.footer h1 { font-size:10rem; font-weight:900; color:#FF5700; line-height:0.9; }
+.social-links { margin:40px 0; display:flex; gap:30px; justify-content:center; flex-wrap:wrap; }
+.social-icon { background:#FF5700; color:#000; padding:12px 30px; border-radius:50px; text-decoration:none; font-weight:700; transition:all .3s; }
+.social-icon:hover { background:#fff; transform:translateY(-5px); }
 
 /* ====================== FORMULARIOS ====================== */
 .form-container {
@@ -384,85 +338,98 @@ body {
   box-shadow:0 20px 40px rgba(0,0,0,0.5);
 }
 
-.form-container h1 {
-  font-size:6rem;
-  color:#FF5700;
-  margin-bottom:50px;
+.form-container h1 { font-size:6rem; color:#FF5700; margin-bottom:50px; }
+.form-group input { width:100%; padding:18px; border-radius:50px; border:none; background:#222; color:white; font-size:1.1rem; }
+.form-group input:focus { outline:none; box-shadow:0 0 0 3px rgba(255,87,0,0.3); }
+
+/* ====================== MODAL DE PELÍCULA  ====================== */
+.movie-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.97);
+  z-index: 9999;
+  padding: 40px 20px;
+  overflow-y: auto;
+  justify-content: center;
+  align-items: center;
 }
 
-.form-group {
-  margin-bottom:24px;
-  position:relative;
+.movie-modal.active { display: flex; }
+
+.modal-content {
+  max-width: 900px;
+  width: 100%;
+  background: #111;
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(255,87,0,0.4);
+  text-align: center;
 }
 
-.form-group input {
-  width:100%;
-  padding:18px;
-  border-radius:50px;
-  border:none;
-  background:#222;
-  color:white;
-  font-size:1.1rem;
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 3.5rem;
+  cursor: pointer;
+  z-index: 10;
 }
 
-.form-group input:focus {
-  outline:none;
-  box-shadow:0 0 0 3px rgba(255,87,0,0.3);
+.modal-info h2 {
+  font-size: 4rem;
+  color: #FF5700;
+  margin-bottom: 10px;
 }
 
-.form-footer a {
-  color:#FF5700;
-  text-decoration:none;
-  font-weight:700;
+.modal-info .year {
+  color: #aaa;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
 }
 
-.form-footer a:hover {
-  text-decoration:underline;
+.modal-trailer {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 15px;
+  margin: 30px 0;
 }
 
-/* ====================== RESPONSIVE ====================== */
-@media (max-width: 1024px) {
-  .carousel-overlay h2 { font-size:3.8rem; }
-  .carousel-overlay { padding:100px 30px 80px; }
+.modal-info .synopsis {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: #ddd;
+  margin: 30px 0;
+}
+
+/* ESTRELLAS GRANDES Y BONITAS */
+.stars-rating {
+  display: flex;
+  gap: 20px;
+  font-size: 4rem;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.stars-rating span {
+  color: #444;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.stars-rating span:hover,
+.stars-rating span.active {
+  color: #FF5700;
+  text-shadow: 0 0 20px #FF5700;
+  transform: scale(1.2);
 }
 
 @media (max-width: 768px) {
-  .container { padding:0 20px; }
-  .menu-toggle { display:block !important; }
-  .nav, #loginBtn { display:none; }
-  .nav.active {
-    display:flex !important;
-    position:fixed; top:0; left:0; right:0; bottom:0;
-    background:#0F0E0E; flex-direction:column;
-    justify-content:center; align-items:center;
-    gap:60px; font-size:3rem; z-index:1000;
-  }
-  
-  .hero-wrapper { height:100vh; }
-  .carousel-overlay h2 { font-size:3rem !important; }
-  .carousel-overlay p { font-size:1.3rem !important; }
-  .carousel-overlay { padding:100px 20px 140px !important; }
-  .carousel-overlay .btn { padding:12px 30px; }
-  
-  .row-title { font-size:2rem; }
-  .movie-card { min-width:220px; }
-  .movie-card img { height:320px; }
-  .row-nav { width:50px; height:100px; font-size:2.5rem; }
-  
-  .about h1 { font-size:6rem !important; }
-  .footer h1 { font-size:6rem; }
-  .form-container { margin:60px auto; padding:60px 40px; }
-  .form-container h1 { font-size:4.5rem; }
-}
-
-@media (max-width: 480px) {
-  .carousel-overlay h2 { font-size:2.5rem !important; }
-  .carousel-overlay p { font-size:1.1rem !important; }
-  .carousel-overlay .btn { padding:10px 25px; }
-  .row-title { font-size:1.8rem; }
-  .movie-card { min-width:180px; }
-  .movie-card img { height:270px; }
-  .about h1 { font-size:5rem !important; }
-  .footer h1 { font-size:4.5rem; }
-  .form-container h1 { font-size:4rem; }
+  .modal-trailer { height: 300px; }
+  .modal-info h2 { font-size: 3rem; }
 }

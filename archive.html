@@ -4,14 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Archive - NERV</title>
-  <!-- AQUÍ VA TU FAVICON -->
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-  
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
+
   <header class="header">
     <div class="container">
       <div class="nav-bar">
@@ -36,21 +34,46 @@
     <div class="archive-grid" id="archiveGrid"></div>
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
-  <div class="container">
-    <h1>Nuestras<br>Redes</h1>
-    <div class="social-links">
-      <a href="#" class="social-icon">Instagram</a>
-      <a href="#" class="social-icon">Twitter</a>
-      <a href="#" class="social-icon">YouTube</a>
-      <a href="#" class="social-icon">TikTok</a>
+    <div class="container">
+      <h1>Nuestras<br>Redes</h1>
+      <div class="social-links">
+        <a href="#" class="social-icon">Instagram</a>
+        <a href="#" class="social-icon">Twitter</a>
+        <a href="#" class="social-icon">YouTube</a>
+        <a href="#" class="social-icon">TikTok</a>
+      </div>
+      <p style="margin-top:40px; color:#666; font-size:1rem;">
+        © 2025 NERV - Reseñas de cine con alma<br>
+        Contacto: nerv.cine@gmail.com
+      </p>
     </div>
-    <p style="margin-top:40px; color:#666; font-size:1rem;">
-      © 2025 NERV - Reseñas de cine con alma<br>
-      Contacto: nerv.cine@gmail.com
-    </p>
+  </footer>
+
+  <!-- MODAL DE DETALLE (igual que en index) -->
+<!-- MODAL SIMPLIFICADO - SOLO TRAILER + SINOPSIS + ESTRELLAS -->
+<div class="movie-modal" id="movieModal">
+  <div class="modal-content">
+    <button class="modal-close" id="closeModalBtn">×</button>
+    <div class="modal-info">
+      <h2 id="modalTitle">Cargando...</h2>
+      <p class="year" id="modalYear">2025</p>
+      
+      <iframe class="modal-trailer" id="trailerFrame" src="" allowfullscreen></iframe>
+      
+      <div class="synopsis" id="modalSynopsis">Cargando sinopsis...</div>
+      
+      <div class="stars-rating" id="ratingStars">
+        <span data-value="1">★</span>
+        <span data-value="2">★</span>
+        <span data-value="3">★</span>
+        <span data-value="4">★</span>
+        <span data-value="5">★</span>
+      </div>
+    </div>
   </div>
-</footer>
+</div>
 
   <script src="assets/css/js/main.js"></script>
 </body>
