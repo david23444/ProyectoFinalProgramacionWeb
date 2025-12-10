@@ -24,6 +24,26 @@
           <a href="archive.html">Archive</a>
           <a href="about.html">NERV</a>
         </nav>
+
+        <!-- BUSCADOR POR GÉNERO -->
+        <select id="genreSelect" class="search-input">
+          <option value="">Todos los géneros</option>
+          <option value="28">Acción</option>
+          <option value="12">Aventura</option>
+          <option value="16">Animación</option>
+          <option value="35">Comedia</option>
+          <option value="80">Crimen</option>
+          <option value="18">Drama</option>
+          <option value="10751">Familia</option>
+          <option value="14">Fantasía</option>
+          <option value="27">Terror</option>
+          <option value="9648">Misterio</option>
+          <option value="10749">Romance</option>
+          <option value="878">Ciencia Ficción</option>
+          <option value="53">Thriller</option>
+          <option value="10752">Guerra</option>
+        </select>
+
         <a href="login.html" class="btn" id="loginBtn">Iniciar Sesión</a>
       </div>
     </div>
@@ -31,7 +51,6 @@
 
   <main class="container">
 
-    <!-- CARRUSEL PRINCIPAL -->
     <section class="hero hero-wrapper">
       <div class="carousel" id="carousel"></div>
       <div class="carousel-dots" id="dots"></div>
@@ -40,7 +59,6 @@
       </div>
     </section>
 
-    <!-- FILAS POR GÉNERO -->
     <div class="movies-row">
       <h2 class="row-title">Drama</h2>
       <button class="row-nav prev" onclick="scrollRow('dramaRow', -400)">←</button>
@@ -71,7 +89,6 @@
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <h1>Nuestras<br>Redes</h1>
@@ -88,30 +105,25 @@
     </div>
   </footer>
 
-  <!-- MODAL DE DETALLE -->
- <!-- MODAL SIMPLIFICADO - SOLO TRAILER + SINOPSIS + ESTRELLAS -->
-<div class="movie-modal" id="movieModal">
-  <div class="modal-content">
-  <button class="modal-close" id="closeModalBtn">×</button>
-    
-    <div class="modal-info">
-      <h2 id="modalTitle">Cargando...</h2>
-      <p class="year" id="modalYear">2025</p>
-      
-      <iframe class="modal-trailer" id="trailerFrame" src="" allowfullscreen></iframe>
-      
-      <div class="synopsis" id="modalSynopsis">Cargando sinopsis...</div>
-      
-      <div class="stars-rating" id="ratingStars">
-        <span data-value="1">★</span>
-        <span data-value="2">★</span>
-        <span data-value="3">★</span>
-        <span data-value="4">★</span>
-        <span data-value="5">★</span>
+  <!-- MODAL -->
+  <div class="movie-modal" id="movieModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModalBtn">×</button>
+      <div class="modal-info">
+        <h2 id="modalTitle">Cargando...</h2>
+        <p class="year" id="modalYear">2025</p>
+        <iframe class="modal-trailer" id="trailerFrame" src="" allowfullscreen></iframe>
+        <div class="synopsis" id="modalSynopsis">Cargando sinopsis...</div>
+        <div class="stars-rating" id="ratingStars">
+          <span data-value="1">★</span>
+          <span data-value="2">★</span>
+          <span data-value="3">★</span>
+          <span data-value="4">★</span>
+          <span data-value="5">★</span>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
   <script src="assets/css/js/main.js"></script>
 </body>

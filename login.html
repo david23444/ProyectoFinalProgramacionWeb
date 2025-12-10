@@ -4,13 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iniciar Sesión - NERV</title>
-
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
+
   <header class="header">
     <div class="container">
       <div class="nav-bar">
@@ -30,19 +29,24 @@
     </div>
   </header>
 
-  <div class="form-container">
-    <h1>Iniciar Sesión</h1>
-    <form id="loginForm">
-      <div class="form-group">
-        <input type="email" placeholder="Email" required>
-      </div>
-      <div class="form-group">
-        <input type="password" placeholder="Contraseña" required>
-      </div>
-      <button type="submit" class="btn">Entrar</button>
-    </form>
-    <p style="margin-top:20px;"><a href="signup.html">¿No tienes cuenta? Regístrate</a></p>
-  </div>
+  <!-- FORMULARIO -->
+  <main class="form-page">
+    <div class="form-container">
+      <h1>Iniciar Sesión</h1>
+      <form id="loginForm">
+        <div class="form-group">
+          <input type="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="Contraseña" required>
+        </div>
+        <button type="submit" class="btn">Entrar</button>
+      </form>
+      <p class="form-footer">
+        ¿No tienes cuenta? <a href="signup.html">Regístrate aquí</a>
+      </p>
+    </div>
+  </main>
 
   <script src="assets/css/js/main.js"></script>
 </body>

@@ -88,6 +88,25 @@ body {
   transform:translateY(-2px);
 }
 
+/* BUSCADOR POR GÉNERO */
+#genreSelect {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 50px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+}
+
+#genreSelect:focus {
+  outline: none;
+  background: rgba(0,0,0,0.8);
+  box-shadow: 0 0 0 3px rgba(255,87,0,0.4);
+}
+
 /* ====================== CARRUSEL ====================== */
 .hero-wrapper {
   position:relative;
@@ -240,7 +259,7 @@ body {
   font-size:1rem;
 }
 
-/* BOTONES ← → (solo aparecen al pasar el mouse) */
+/* BOTONES ← → */
 .row-nav {
   position:absolute;
   top:50%;
@@ -326,110 +345,412 @@ body {
 .social-icon { background:#FF5700; color:#000; padding:12px 30px; border-radius:50px; text-decoration:none; font-weight:700; transition:all .3s; }
 .social-icon:hover { background:#fff; transform:translateY(-5px); }
 
-/* ====================== FORMULARIOS ====================== */
-.form-container {
-  background:rgba(255,87,0,0.1);
-  padding:80px 60px;
-  border-radius:30px;
-  max-width:500px;
-  margin:100px auto;
-  text-align:center;
-  backdrop-filter:blur(10px);
-  box-shadow:0 20px 40px rgba(0,0,0,0.5);
+/* ====================== FORMULARIOS CENTRADOS Y BONITOS ====================== */
+.form-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #0F0E0E;
 }
 
-.form-container h1 { font-size:6rem; color:#FF5700; margin-bottom:50px; }
-.form-group input { width:100%; padding:18px; border-radius:50px; border:none; background:#222; color:white; font-size:1.1rem; }
-.form-group input:focus { outline:none; box-shadow:0 0 0 3px rgba(255,87,0,0.3); }
+.form-container {
+  background: rgba(255,87,0,0.1);
+  padding: 70px 50px;
+  border-radius: 30px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+  border: 1px solid rgba(255,87,0,0.2);
+}
 
-/* ====================== MODAL DE PELÍCULA  ====================== */
+.form-container h1 {
+  font-size: 5rem;
+  color: #FF5700;
+  margin-bottom: 50px;
+  font-weight: 900;
+}
+
+.form-group {
+  margin-bottom: 28px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 18px 22px;
+  border-radius: 50px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  font-size: 1.1rem;
+  backdrop-filter: blur(10px);
+}
+
+.form-group input::placeholder {
+  color: #aaa;
+}
+
+.form-group input:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255,87,0,0.3);
+}
+
+.form-container button {
+  width: 100%;
+  padding: 18px;
+  font-size: 1.3rem;
+  margin-top: 15px;
+  border-radius: 50px;
+}
+
+.form-footer {
+  margin-top: 35px;
+  font-size: 1.1rem;
+}
+
+.form-footer a {
+  color: #FF5700;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.form-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ====================== VIDEO DE FONDO ====================== */
+.hero-video {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 10rem;
+  color: #FF5700;
+  text-shadow: 0 0 40px rgba(255,87,0,0.9);
+  margin-bottom: 20px;
+  font-weight: 900;
+  letter-spacing: 8px;
+}
+
+.hero-content p {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-shadow: 0 0 30px black;
+  font-weight: 300;
+}
+
+.hero-content .btn {
+  font-size: 1.6rem;
+  padding: 20px 60px;
+  background: #FF5700;
+  color: black;
+  border-radius: 60px;
+  font-weight: bold;
+  box-shadow: 0 10px 30px rgba(255,87,0,0.5);
+}
+
+/* RESPONSIVE VIDEO */
+@media (max-width: 1024px) {
+  .hero-content h1 { font-size: 8rem; }
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 { font-size: 6rem; }
+  .hero-content p { font-size: 1.8rem; }
+  .hero-content .btn { padding: 16px 45px; font-size: 1.4rem; }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 { font-size: 4.5rem; }
+  .hero-content p { font-size: 1.4rem; }
+  .hero-content .btn { padding: 14px 40px; font-size: 1.2rem; }
+}
+
+/* ====================== MODAL PERFECTO ====================== */
 .movie-modal {
   display: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(0,0,0,0.97);
   z-index: 9999;
-  padding: 40px 20px;
+  padding: 20px;
   overflow-y: auto;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 60px;
 }
 
-.movie-modal.active { display: flex; }
+.movie-modal.active { 
+  display: flex; 
+}
 
 .modal-content {
   max-width: 900px;
   width: 100%;
   background: #111;
   border-radius: 20px;
-  padding: 40px;
+  padding: 35px 25px;
   position: relative;
-  box-shadow: 0 30px 80px rgba(255,87,0,0.4);
-  text-align: center;
+  ;
+  box-shadow: 0 30px 80px rgba(255,87,0,0.5);
+  margin: 0 auto;
 }
 
+/* BOTÓN CERRAR - GRANDE Y NARANJA */
 .modal-close {
   position: absolute;
   top: 15px;
-  right: 25px;
-  background: none;
+  right: 20px;
+  background: #FF5700;
   border: none;
-  color: white;
-  font-size: 3.5rem;
+  color: black;
+  font-size: 2.5rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   cursor: pointer;
   z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
+/* TÍTULO Y AÑO */
 .modal-info h2 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   color: #FF5700;
-  margin-bottom: 10px;
+  margin: 0 0 8px 0;
+  text-align: center;
 }
 
 .modal-info .year {
   color: #aaa;
-  font-size: 1.8rem;
-  margin-bottom: 30px;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 25px;
 }
 
+/* TRAILER - GRANDE Y CENTRADO */
 .modal-trailer {
   width: 100%;
-  height: 500px;
+  height: 520px;
   border: none;
-  border-radius: 15px;
-  margin: 30px 0;
+  border-radius: 18px;
+  margin: 20px 0;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
 }
 
+/* SINOPSIS - CORTA Y ELEGANTE */
 .modal-info .synopsis {
-  font-size: 1.4rem;
-  line-height: 1.8;
+  font-size: 1.15rem;
+  line-height: 1.7;
   color: #ddd;
-  margin: 30px 0;
+  margin: 25px 0;
+  text-align: center;
+  max-height: 130px;
+  overflow-y: auto;
+  padding: 0 15px;
 }
 
-/* ESTRELLAS GRANDES Y BONITAS */
+/* ESTRELLAS - GRANDES Y CENTRADAS */
 .stars-rating {
   display: flex;
   gap: 20px;
   font-size: 4rem;
   justify-content: center;
-  margin: 40px 0;
+  margin: 35px 0 20px;
 }
 
 .stars-rating span {
-  color: #444;
+  color: #555;
   cursor: pointer;
   transition: all 0.3s;
 }
 
-.stars-rating span:hover,
 .stars-rating span.active {
   color: #FF5700;
-  text-shadow: 0 0 20px #FF5700;
-  transform: scale(1.2);
+  text-shadow: 0 0 25px #FF5700;
+  transform: scale(1.1);
+}
+
+/* RESPONSIVE MODAL - PERFECTO EN MÓVIL */
+@media (max-width: 768px) {
+  .modal-trailer { height: 340px; }
+  .modal-info h2 { font-size: 2.8rem; }
+  }
+  .modal-info .year { font-size: 1.3rem; }
+  .modal-info .synopsis { font-size: 1.05rem; max-height: 110px; }
+  .stars-rating { font-size: 3.2rem; gap: 15px; }
+
+@media (max-width: 480px) { 
+  .modal-info h2 { font-size: 2.4rem; }
+  .modal-info .year { font-size: 1.2rem; }
+  .modal-info .synopsis { font-size: 1rem; }
+  .stars-rating { font-size: 2.8rem; }
+  .modal-close { width: 45px; height: 45px; font-size: 2.2rem; }
+}
+
+
+
+
+/* ====================== RESPONSIVE ====================== */
+@media (max-width: 1024px) {
+  .carousel-overlay h2 { font-size:3.8rem; }
+  .carousel-overlay { padding:100px 30px 80px; }
+}
+/* ====================== RESPONSIVE GENERAL - TÍTULOS GRANDES ====================== */
+h1, .row-title, #archiveTitle, .footer h1, .form-container h1 {
+  font-size: 5rem;
+  font-weight: 900;
+  color: #FF5700;
+  text-align: center;
+  margin: 80px 0 40px;
+}
+
+@media (max-width: 1024px) {
+  h1, .row-title, #archiveTitle, .footer h1, .form-container h1 {
+    font-size: 4rem;
+  }
 }
 
 @media (max-width: 768px) {
+  h1, .row-title, #archiveTitle, .footer h1, .form-container h1 {
+    font-size: 3.2rem !important;
+    margin: 60px 0 30px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  h1, .row-title, #archiveTitle, .footer h1, .form-container h1 {
+    font-size: 2.6rem !important;
+    margin: 50px 0 25px !important;
+  }
+}
+
+/* ====================== HEADER EN MÓVIL - ====================== */
+@media (max-width: 768px) {
+  .container { padding:0 20px; }
+
+  /* FORZAMOS QUE EL MENÚ HAMBURGUESA ESTÉ A LA DERECHA EN TODAS LAS PÁGINAS */
+  .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .logo {
+    order: 0;
+  }
+
+  /* Buscador y botón login a la izquierda */
+   #loginBtn {
+    display: block !important;
+    padding: 10px 18px;
+    font-size: 0.85rem;
+  }
+
+  .nav-bar > div {
+    order: 2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  #genreSelect {
+    display: block !important;
+    width: 140px;
+    padding: 10px 12px;
+    font-size: 0.85rem;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid #FF5700;
+  }
+
+ 
+  /* HAMBURGUESA A LA DERECHA (EN TODAS LAS PÁGINAS) */
+  .menu-toggle {
+    display: block !important;
+    order: 3;
+    margin-left: auto;
+  }
+
+  /* Ocultamos los enlaces normales */
+  .nav {
+    display: none;
+  }
+
+  .nav.active {
+    display: flex !important;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #0F0E0E;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    font-size: 3rem;
+    z-index: 1000;
+    padding: 100px 20px;
+  }
+
+  .nav.active a {
+    color: white;
+  }
+
+  /* Resto responsive */
+  .hero-wrapper { height:100vh; }
+  .carousel-overlay h2 { font-size:3rem !important; }
+  .carousel-overlay p { font-size:1.3rem !important; }
+  .movie-card { min-width:220px; }
+  .movie-card img { height:320px; }
   .modal-trailer { height: 300px; }
-  .modal-info h2 { font-size: 3rem; }
+  .modal-info h2 { font-size: 2.5rem; }
+  .stars-rating { font-size: 2.5rem; }
+}
+
+
+@media (max-width: 480px) {
+  .carousel-overlay h2 { font-size:2.5rem !important; }
+  .carousel-overlay p { font-size:1.1rem !important; }
+  .carousel-overlay .btn { padding:10px 25px; }
+  .row-title { font-size:1.8rem; }
+  .movie-card { min-width:180px; }
+  .movie-card img { height:270px; }
+  .modal-trailer { height: 220px; }
+  .modal-info h2 { font-size: 2.2rem; }
+  .modal-info .synopsis { font-size: 1rem; }
+  .stars-rating { font-size: 2.2rem; }
+  .modal-close { font-size: 2.3rem; width: 40px; height: 40px; }
 }

@@ -1,5 +1,5 @@
 /* ==================================================
-   main.js - NERV PROYECTO FINAL 
+   main.js - NERV PROYECTO FINAL 100% FUNCIONAL
    ================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -109,22 +109,27 @@ document.addEventListener('DOMContentLoaded', () => {
   Object.keys(genres).forEach(rowId => {
     const row = document.getElementById(rowId);
     if (row) {
-      fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genres[rowId]}&language=es-ES`)
+      fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genres[rowId]}&language=es-ES&page=1`)
         .then(r => r.json())
-        .then(d => {
-          d.results.slice(0, 15).forEach(peli => {
-            const card = document.createElement('div');
-            card.className = 'movie-card';
-            card.dataset.movieId = peli.id;
-            card.innerHTML = `
-              <img src="${POSTER_URL}${peli.poster_path}" alt="${peli.title}">
-              <div class="movie-info">
-                <h3>${peli.title}</h3>
-                <p>${peli.release_date?.split('-')[0] || 'Próximamente'}</p>
-              </div>
-            `;
-            row.appendChild(card);
-          });
+        .then(d1 => {
+          fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genres[rowId]}&language=es-ES&page=2`)
+            .then(r => r.json())
+            .then(d2 => {
+              const allResults = d1.results.concat(d2.results);
+              allResults.forEach(peli => {
+                const card = document.createElement('div');
+                card.className = 'movie-card';
+                card.dataset.movieId = peli.id;
+                card.innerHTML = `
+                  <img src="${POSTER_URL}${peli.poster_path}" alt="${peli.title}">
+                  <div class="movie-info">
+                    <h3>${peli.title}</h3>
+                    <p>${peli.release_date?.split('-')[0] || 'Próximamente'}</p>
+                  </div>
+                `;
+                row.appendChild(card);
+              });
+            });
         });
     }
   });
@@ -135,61 +140,82 @@ document.addEventListener('DOMContentLoaded', () => {
     row.scrollLeft += amount;
   };
 
-  // ==================== ARCHIVE ====================
+  // ==================== BUSCADOR POR GÉNERO → REDIRIGE A ARCHIVE ====================
+  const genreSelect = document.getElementById('genreSelect');
+  if (genreSelect) {
+    genreSelect.addEventListener('change', () => {
+      const genre = genreSelect.value;
+      location.href = genre ? `archive.html?genre=${genre}` : 'archive.html';
+    });
+  }
+
+  // ==================== ARCHIVE: TODAS O POR GÉNERO ====================
+  const urlParams = new URLSearchParams(window.location.search);
+  const selectedGenre = urlParams.get('genre');
+  const archiveTitle = document.getElementById('archiveTitle');
   const grid = document.getElementById('archiveGrid');
+
   if (grid) {
-    fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=es-ES&page=1`)
-      .then(r => r.json())
-      .then(d => {
-        d.results.forEach(peli => {
-          const card = document.createElement('div');
-          card.className = 'archive-card';
-          card.dataset.movieId = peli.id;
-          card.innerHTML = `
-            <img src="${POSTER_URL}${peli.poster_path}" alt="${peli.title}">
-            <h3>${peli.title}</h3>
-            <p>${peli.release_date?.split('-')[0] || 'Sin fecha'}</p>
-          `;
-          grid.appendChild(card);
+    if (archiveTitle) {
+      archiveTitle.textContent = selectedGenre ? 'Películas del género seleccionado' : 'Todas las películas';
+    }
+
+    const pages = [1, 2, 3];
+    pages.forEach(page => {
+      const url = selectedGenre
+        ? `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${selectedGenre}&language=es-ES&page=${page}`
+        : `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=es-ES&page=${page}`;
+
+      fetch(url)
+        .then(r => r.json())
+        .then(data => {
+          data.results.forEach(peli => {
+            const card = document.createElement('div');
+            card.className = 'archive-card';
+            card.dataset.movieId = peli.id;
+            card.innerHTML = `
+              <img src="${POSTER_URL}${peli.poster_path}" alt="${peli.title}">
+              <h3>${peli.title}</h3>
+              <p>${peli.release_date?.split('-')[0] || 'Sin fecha'}</p>
+            `;
+            grid.appendChild(card);
+          });
         });
+    });
+  }
+
+  // ==================== MODAL ====================
+  function openMovieModal(movieId) {
+    fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=es-ES`)
+      .then(r => r.json())
+      .then(movie => {
+        document.getElementById('modalTitle').textContent = movie.title;
+        document.getElementById('modalYear').textContent = movie.release_date?.split('-')[0] || 'Sin fecha';
+        document.getElementById('modalSynopsis').textContent = movie.overview || 'Sin sinopsis disponible';
+
+        fetch(`${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}`)
+          .then(r => r.json())
+          .then(v => {
+            const trailer = v.results.find(t => t.type === "Trailer" && t.site === "YouTube");
+            const frame = document.getElementById('trailerFrame');
+            frame.src = trailer ? `https://www.youtube.com/embed/${trailer.key}?autoplay=1&rel=0` : "";
+          });
+
+        // Reiniciar estrellas
+        document.querySelectorAll('#ratingStars span').forEach(star => star.classList.remove('active'));
+
+        document.getElementById('movieModal').classList.add('active');
       });
   }
 
-  // ==================== MODAL SIMPLIFICADO ====================
-
-function openMovieModal(movieId) {
-  fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=es-ES`)
-    .then(r => r.json())
-    .then(movie => {
-      document.getElementById('modalTitle').textContent = movie.title;
-      document.getElementById('modalYear').textContent = movie.release_date?.split('-')[0] || 'Sin fecha';
-      document.getElementById('modalSynopsis').textContent = movie.overview || 'Sin sinopsis disponible';
-
-      // Trailer
-      fetch(`${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}`)
-        .then(r => r.json())
-        .then(v => {
-          const trailer = v.results.find(t => t.type === "Trailer" && t.site === "YouTube");
-          const frame = document.getElementById('trailerFrame');
-          frame.src = trailer ? `https://www.youtube.com/embed/${trailer.key}?autoplay=1&rel=0` : "";
-        });
-
-      // REINICIAR ESTRELLAS AL ABRIR NUEVA PELÍCULA
-      document.querySelectorAll('#ratingStars span').forEach(star => {
-        star.classList.remove('active');
-      });
-
-      document.getElementById('movieModal').classList.add('active');
-    });
-}
-  // CERRAR MODAL CON BOTÓN ×
+  // CERRAR MODAL
   document.getElementById('closeModalBtn')?.addEventListener('click', () => {
     document.getElementById('movieModal').classList.remove('active');
     document.getElementById('trailerFrame').src = "";
   });
 
   // CERRAR AL HACER CLICK FUERA
-  document.getElementById('movieModal')?.addEventListener('click', (e) => {
+  document.getElementById('movieModal')?.addEventListener('click', e => {
     if (e.target === document.getElementById('movieModal')) {
       document.getElementById('movieModal').classList.remove('active');
       document.getElementById('trailerFrame').src = "";
@@ -215,14 +241,21 @@ function openMovieModal(movieId) {
     }
   });
 
-  // ==================== MENÚ HAMBURGUESA ====================
-  const toggle = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.nav');
-  if (toggle && nav) {
-    toggle.onclick = () => {
+  // ==================== MENÚ HAMBURGUESA - FUNCIONA EN MÓVIL AL 100% ====================
+  document.addEventListener('click', (e) => {
+    const toggle = e.target.closest('.menu-toggle');
+    const nav = document.querySelector('.nav');
+
+    if (toggle && nav) {
+      e.preventDefault();
       toggle.classList.toggle('active');
       nav.classList.toggle('active');
-      document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
-    };
-  }
+
+      if (nav.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    }
+  });
 });
