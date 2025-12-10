@@ -69,9 +69,8 @@ nerv-cine/
 ---
 
 ### DEMO EN VIVO
-[https://tunombre.github.io/nerv-cine-blog](https://tunombre.github.io/nerv-cine-blog) *(activa GitHub Pages cuando lo subas)*
+[https://david23444.github.io/ProyectoFinalProgramacionWeb/archive.html?genre=28]
 
 ---
 
-**¡Proyecto 100% funcional, profesional y listo para entrega!**  
 Hecho con pasión por el cine y el código  
